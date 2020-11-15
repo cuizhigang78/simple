@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--
+元素类型为 "configuration" 的内容必须匹配
+"(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,plugins?,environments?,databaseIdProvider?,mappers?)"。
+-->
+	<settings>
+		<!--指定使用LOG4J输出日志-->
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	<typeAliases>
+		<!--配置包的别名，这样在使用这个包下的类时，就不需要使用全限定名称，而只需要使用类名即可-->
+		<package name="tk.mybatis.simple.model"></package>
+	</typeAliases>
+	<!--下画线键值转小写驼峰形式插件-->
+	<plugins>
+		<plugin interceptor="tk.mybatis.simple.plugin.CameHumpInterceptor"/>
+	</plugins>
+	<!--数据库连接-->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://192.168.1.5:3306/mybatis"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!--MyBatis的SQL语句和映射配置文件-->
+	<mappers>
+		<mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"/>
+		<mapper resource="tk/mybatis/simple/mapper/UserMapper.xml"/>
+	</mappers>
+</configuration>
