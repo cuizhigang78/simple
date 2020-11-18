@@ -1,11 +1,11 @@
 package tk.mybatis.simple.mapper;
 
 /**
- * @ClassName CountryMapper
+ * @ClassName RolePrivilegeMapper
  * @Author Maxwell
  * @Date 2020/11/13 23:27
- * @Description CountryMapper
+ * @Description RolePrivilegeMapper
  * @Version 1.0
  */
-public interface CountryMapper {
+public interface RolePrivilegeMapper {
 }

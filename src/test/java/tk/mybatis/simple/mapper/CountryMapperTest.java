@@ -20,20 +20,7 @@ import java.util.List;
  * @Description CountryMapperTest
  * @Version 1.0
  */
-public class CountryMapperTest {
-
-    private static SqlSessionFactory sqlSessionFactory;
-
-    @BeforeClass
-    public static void init() {
-        try {
-            Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+public class CountryMapperTest extends BaseMapperTest {
 
     /**
      * 1. 通过Resources工具类将mybatis-config.xml配置文件读入Reader。
@@ -49,9 +36,12 @@ public class CountryMapperTest {
      */
     @Test
     public void testSelectAll() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = getSqlSession();
         try {
-            List<Country> list = sqlSession.selectList("selectAll");
+            // List<Country> list = sqlSession.selectList("selectAll");
+            // 由于UserMapper中添加了一个selectAll方法，因此CountryMapperTest中的selectAll不再唯一
+            // 调用时必须带上namespace
+            List<Country> list = sqlSession.selectList("tk.mybatis.simple.mapper.CountryMapper.selectAll");
             printCountryList(list);
         } finally {
             sqlSession.close();
