@@ -5,14 +5,4 @@
 <!--XML的根元素，属性namespace定义了当前XML的命名空间-->
 <mapper namespace="tk.mybatis.simple.mapper.RoleMapper">
 
-	<select id="selectById" resultType="tk.mybatis.simple.model.SysRole">
-		select id,
-			   role_name,
-			   enabled,
-			   create_by,
-			   create_time
-		from sys_role
-		where id = #{id}
-	</select>
-
 </mapper>

@@ -78,6 +78,109 @@
 		select * from sys_user where id = #{id}
 	</select>
 
+	<select id="selectByUser" resultType="SysUser">
+		select
+		       *
+		from sys_user
+		where 1 = 1
+		<if test="userName != null and userName != ''">
+			and user_name like concat('%', #{userName}, '%')
+		</if>
+		<if test="userEmail != null and userEmail != ''">
+			and user_email = #{userEmail}
+		</if>
+	</select>
+
+	<select id="selectByUser2" resultType="SysUser">
+		select
+			*
+		from sys_user
+		<where>
+			<if test="userName != null and userName != ''">
+				and user_name like concat('%', #{userName}, '%')
+			</if>
+			<if test="userEmail != null and userEmail != ''">
+				and user_email = #{userEmail}
+			</if>
+		</where>
+	</select>
+
+	<!--
+		** foreach包含以下属性 **
+		1. collection：必填，值为要迭代循环的属性名；
+		2. item：变量名，值为从迭代对象中取出的每一个值；
+		3. index：索引的属性名，在集合数组中值为当前索引值，在Map中值为key；
+		4. open：整个循环内容开头的字符串；
+		5. close：整个循环内容结尾的字符串；
+		6. separator：每次循环的分隔符
+	-->
+	<!-- 1. 只有一个List参数 -->
+	<select id="selectByIdList" resultType="SysUser">
+		select
+			*
+		from sys_user
+		where id in
+			<foreach collection="list" open="(" close=")" separator="," item="id" index="i">
+				#{id}
+			</foreach>
+	</select>
+	<!-- 1. 只有一个数组参数 -->
+	<select id="selectByIdList1" resultType="SysUser">
+		select
+		*
+		from sys_user
+		where id in
+		<foreach collection="array" open="(" close=")" separator="," item="id" index="i">
+			#{id}
+		</foreach>
+	</select>
+	<!-- 1. 只有一个集合参数（参数是List，collection既可以是list又可以是collection） -->
+	<select id="selectByIdList11" resultType="SysUser">
+		select
+		*
+		from sys_user
+		where id in
+		<foreach collection="collection" open="(" close=")" separator="," item="id" index="i">
+			#{id}
+		</foreach>
+	</select>
+	<!-- 2. 有多个参数 -->
+	<select id="selectByIdList2" resultType="SysUser">
+		select
+		*
+		from sys_user
+		where
+		user_name = #{userName}
+		and id in
+		<foreach collection="idList" open="(" close=")" separator="," item="id" index="i">
+			#{id}
+		</foreach>
+	</select>
+	<!-- 3. 参数是Map类型 -->
+	<select id="selectByIdList3" resultType="SysUser">
+		select * from sys_user
+		where
+		id in
+		<foreach collection="idList" open="(" close=")" separator="," item="id" index="i">
+			#{id}
+		</foreach>
+	</select>
+
+	<select id="selectByIdOrUserName" resultType="SysUser">
+		select * from  sys_user where 1 = 1
+		<choose>
+			<when test="id != null">
+				and id = #{id}
+			</when>
+			<when test="userName != null and userName != ''">
+				and user_name = #{userName}
+			</when>
+			<otherwise>
+				and 1 = 2
+			</otherwise>
+		</choose>
+	</select>
+
 	<!--
 		使用自动映射的前提是列名与属性名保持一致，但MyBatis提供了一个全局属性mapUnderscoreToCamelCase，
 	 可以自动将以下划线方式命名的数据库列映射到Java对象的驼峰式命名属性中。所以这里不必再取别名。
@@ -210,6 +313,50 @@
 		</selectKey>
 	</insert>
 
+	<!-- 选择性插入 -->
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO sys_user (
+		id, user_name, user_password,
+		<if test="userEmail != null and userEmail != ''">
+			user_email,
+		</if>
+		user_info, head_img, create_time
+		) VALUES (
+		#{id}, #{userName}, #{userPassword},
+		<if test="userEmail != null and userEmail != ''">
+			#{userEmail},
+		</if>
+		#{userInfo}, #{headImg, jdbcType=BLOB},
+		#{createTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+
+    <!-- 批量插入用户信息 -->
+	<insert id="insertList">
+		INSERT INTO sys_user ( user_name, user_password, user_email, user_info, head_img, create_time )
+		VALUES
+		<foreach collection="list" item="user" separator=",">
+			(
+			 #{user.userName}, #{user.userPassword}, #{user.userEmail},
+			 #{user.userInfo}, #{user.headImg, jdbcType=BLOB},
+			 #{user.createTime, jdbcType=TIMESTAMP}
+			)
+		</foreach>
+	</insert>
+
+	<!-- 批量插入用户信息 -->
+	<insert id="insertList2" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO sys_user ( user_name, user_password, user_email, user_info, head_img, create_time )
+		VALUES
+		<foreach collection="list" item="user" separator=",">
+			(
+			#{user.userName}, #{user.userPassword}, #{user.userEmail},
+			#{user.userInfo}, #{user.headImg, jdbcType=BLOB},
+			#{user.createTime, jdbcType=TIMESTAMP}
+			)
+		</foreach>
+	</insert>
+
 	<!-- 可以通过修改UPDATE语句中的WHERE条件来更新一条或一批数据 -->
 	<update id="updateById">
 		UPDATE sys_user
@@ -221,6 +368,80 @@
 			create_time = #{createTime}
 		WHERE
 			id = #{id}
+	</update>
+
+	<!-- 选择性更新 -->
+	<update id="updateByIdSelective">
+		UPDATE sys_user
+		SET
+		    <if test="userName != null and userName != ''">
+				user_name = #{userName},
+			</if>
+			<if test="userPassword != null and userPassword != ''">
+				user_password = #{userPassword},
+			</if>
+			<if test="userEmail != null and userEmail != ''">
+				user_email = #{userEmail},
+			</if>
+			<if test="userInfo != null and userInfo != ''">
+				user_info = #{userInfo},
+			</if>
+			<if test="headImg != null">
+				head_img = #{headImg, jdbcType=BLOB},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime, jdbcType=TIMESTAMP}
+			</if>
+			id = #{id}
+		WHERE
+			id = #{id}
+	</update>
+
+	<!-- 选择性更新（set标签改进版） -->
+	<update id="updateByIdSelective2">
+		UPDATE sys_user
+		<set>
+			<if test="userName != null and userName != ''">
+				user_name = #{userName},
+			</if>
+			<if test="userPassword != null and user_password != ''">
+				user_password = #{userPassword},
+			</if>
+			<if test="userEmail != null and user_email != ''">
+				user_email = #{userEmail},
+			</if>
+			<if test="userInfo != null and user_info != ''">
+				user_info = #{userInfo},
+			</if>
+			<if test="headImg != null">
+				head_img = #{headImg, jdbcType=BLOB},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime, jdbcType=TIMESTAMP}
+			</if>
+			id = #{id}
+		</set>
+		WHERE
+		id = #{id}
+	</update>
+
+	<!-- 动态更新 -->
+	<update id="updateByMap">
+		update sys_user
+        set
+		<foreach collection="_parameter" item="val" index="key" separator=",">
+			${key} = #{val}
+		</foreach>
+		where id = #{id}
+	</update>
+
+	<update id="updateByMap2">
+		update sys_user
+		set
+		<foreach collection="map" item="val" index="key" separator=",">
+			${key} = #{val}
+		</foreach>
+		where id = #{map.id}
 	</update>
 
 	<!-- 通过主键删除 -->

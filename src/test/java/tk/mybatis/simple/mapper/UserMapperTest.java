@@ -12,9 +12,7 @@ import tk.mybatis.simple.model.SysUser;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName UserMapperTest
@@ -37,6 +35,152 @@ public class UserMapperTest extends BaseMapperTest {
             Assert.assertNotNull(user);
             // userName = admin
             Assert.assertEquals("admin", user.getUserName());
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByUser() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SysUser userParam = new SysUser();
+            userParam.setUserName("t");
+            userParam.setUserEmail("admin@mybatis.tk");
+            List<SysUser> users = userMapper.selectByUser(userParam);
+            // user不为空
+            Assert.assertNotNull(users);
+            for (SysUser user : users) {
+                System.out.println(user);
+            }
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByUser2() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SysUser userParam = new SysUser();
+            userParam.setUserName("t");
+            userParam.setUserEmail("admin@mybatis.tk");
+            List<SysUser> users = userMapper.selectByUser2(userParam);
+            // user不为空
+            Assert.assertNotNull(users);
+            for (SysUser user : users) {
+                System.out.println(user);
+            }
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByIdOrUserName() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            // id和userName都按，只根据id查询时
+            SysUser query = new SysUser();
+            query.setId(1L);
+            query.setUserName("admin");
+            SysUser user = userMapper.selectByIdOrUserName(query);
+            Assert.assertNotNull(user);
+            // 当没有id时，根据userName查询
+            query.setId(null);
+            user = userMapper.selectByIdOrUserName(query);
+            Assert.assertNotNull(user);
+            // 当id和userName都为空时，无结果
+            query.setUserName(null);
+            user = userMapper.selectByIdOrUserName(query);
+            Assert.assertNotNull(user);
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByIdList() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            List<Long> idList = new ArrayList<Long>();
+            idList.add(1L);
+            idList.add(1001L);
+            List<SysUser> users = userMapper.selectByIdList(idList);
+            Assert.assertEquals(2, users.size());
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByIdList1() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            Long[] idArray = new Long[] {1L, 1001L};
+            List<SysUser> users = userMapper.selectByIdList1(idArray);
+            Assert.assertEquals(2, users.size());
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByIdList11() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            Set<Long> idSet = new HashSet<Long>();
+            idSet.add(1L);
+            idSet.add(1001L);
+            List<SysUser> users = userMapper.selectByIdList11(idSet);
+            Assert.assertEquals(2, users.size());
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByIdList2() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            List<Long> idList = new ArrayList<Long>();
+            idList.add(1L);
+            idList.add(1001L);
+            List<SysUser> users = userMapper.selectByIdList2("admin", idList);
+            Assert.assertEquals(1, users.size());
+            Assert.assertEquals("admin", users.get(0).getUserName());
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectByIdList3() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            Map<String, Object> map = new HashMap<String, Object>();
+            List<Long> idList = new ArrayList<Long>();
+            idList.add(1L);
+            idList.add(1001L);
+            map.put("idList", idList);
+            List<SysUser> users = userMapper.selectByIdList3(map);
+            Assert.assertEquals(2, users.size());
         } finally {
             sqlSession.close();
         }
@@ -127,6 +271,32 @@ public class UserMapperTest extends BaseMapperTest {
     }
 
     @Test
+    public void testInsertSelective() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SysUser user = new SysUser();
+            user.setUserName("test1");
+            user.setUserPassword("123456");
+            user.setUserInfo("test info");
+            user.setHeadImg(new Byte[]{1, 2, 3});
+            user.setCreateTime(new Date());
+            // 将新建的对象插入数据库中，特别注意这里的返回值result是执行的SQL影响的行数
+            int count = userMapper.insertSelective(user);
+            // 获取插入的这条数据
+            user = userMapper.selectById(user.getId());
+            Assert.assertEquals("test@mybatis.tk", user.getUserEmail());
+        } finally {
+            // 为了不影响其他测试，这里选择回滚
+            // 由于默认的sqlSessionFactory.openSession()是不自动提交的
+            // 因为不手动执行commit也不会提交到数据库
+            sqlSession.rollback();
+            sqlSession.close();
+        }
+    }
+
+    @Test
     public void testInsert3() {
         SqlSession sqlSession = getSqlSession();
         try {
@@ -153,6 +323,69 @@ public class UserMapperTest extends BaseMapperTest {
     }
 
     @Test
+    public void testInsertList() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            ArrayList<SysUser> users = new ArrayList<SysUser>();
+            for (int i = 0; i < 2; i++) {
+                users.add(SysUser.builder()
+                        .userName("test" + i)
+                        .userPassword("123456")
+                        .userEmail("test@mybatis.tk")
+                        .build())
+                ;
+            }
+            // 将新建的对象插入数据库中，特别注意这里的返回值result是执行的SQL影响的行数
+            int count = userMapper.insertList(users);
+            for (SysUser user : users) {
+                // null
+                System.out.println(user.getId());
+            }
+            Assert.assertEquals(2, count);
+        } finally {
+            // 为了不影响其他测试，这里选择回滚
+            // 由于默认的sqlSessionFactory.openSession()是不自动提交的
+            // 因为不手动执行commit也不会提交到数据库
+            sqlSession.rollback();
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testInsertList2() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            ArrayList<SysUser> users = new ArrayList<SysUser>();
+            for (int i = 0; i < 2; i++) {
+                users.add(SysUser.builder()
+                        .userName("test" + i)
+                        .userPassword("123456")
+                        .userEmail("test@mybatis.tk")
+                        .build())
+                ;
+            }
+            // 将新建的对象插入数据库中，特别注意这里的返回值result是执行的SQL影响的行数
+            int count = userMapper.insertList2(users);
+            for (SysUser user : users) {
+                // 1010
+                // 1011
+                System.out.println(user.getId());
+            }
+            Assert.assertEquals(2, count);
+        } finally {
+            // 为了不影响其他测试，这里选择回滚
+            // 由于默认的sqlSessionFactory.openSession()是不自动提交的
+            // 因为不手动执行commit也不会提交到数据库
+            sqlSession.rollback();
+            sqlSession.close();
+        }
+    }
+
+    @Test
     public void testUpdateById() {
         SqlSession sqlSession = getSqlSession();
         try {
@@ -167,6 +400,70 @@ public class UserMapperTest extends BaseMapperTest {
             Assert.assertEquals(1, count);
             user = userMapper.selectById(1L);
             Assert.assertEquals("admin_test", user.getUserName());
+            Assert.assertEquals("test@mybatis.tk", user.getUserEmail());
+        } finally {
+            // 为了不影响其他测试，这里选择回滚
+            // 由于默认的sqlSessionFactory.openSession()是不自动提交的
+            // 因为不手动执行commit也不会提交到数据库
+            sqlSession.rollback();
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testUpdateByIdSelective() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SysUser user = new SysUser();
+            user.setId(1L);
+            // SQL影响的行数
+            int count = userMapper.updateByIdSelective(user);
+            user = userMapper.selectById(1L);
+            System.out.println(user);
+        } finally {
+            // 为了不影响其他测试，这里选择回滚
+            // 由于默认的sqlSessionFactory.openSession()是不自动提交的
+            // 因为不手动执行commit也不会提交到数据库
+            sqlSession.rollback();
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testUpdateByIdSelective2() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SysUser user = new SysUser();
+            user.setId(1L);
+            // SQL影响的行数
+            int count = userMapper.updateByIdSelective2(user);
+            user = userMapper.selectById(1L);
+            System.out.println(user);
+        } finally {
+            // 为了不影响其他测试，这里选择回滚
+            // 由于默认的sqlSessionFactory.openSession()是不自动提交的
+            // 因为不手动执行commit也不会提交到数据库
+            sqlSession.rollback();
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testUpdateByMap() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("id", 1L);
+            map.put("user_email", "test@mybatis.tk");
+            map.put("user_password", "12345678");
+            userMapper.updateByMap(map);
+            SysUser user = userMapper.selectById(1L);
             Assert.assertEquals("test@mybatis.tk", user.getUserEmail());
         } finally {
             // 为了不影响其他测试，这里选择回滚
