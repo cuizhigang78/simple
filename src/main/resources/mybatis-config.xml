@@ -12,6 +12,8 @@
 		<setting name="logImpl" value="LOG4J"/>
 		<!-- 下划线转驼峰 -->
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 开启二级缓存（默认） -->
+		<setting name="cacheEnable" value="true"/>
 	</settings>
 	<typeAliases>
 		<!--配置包的别名，这样在使用这个包下的类时，就不需要使用全限定名称，而只需要使用类名即可-->

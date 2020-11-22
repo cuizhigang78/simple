@@ -110,6 +110,12 @@ public interface UserMapper {
                                            @Param("role") SysRole role);
 
     /**
+     * 查询全部用户
+     * @return
+     */
+    List<SysUser> selectAllUserAndRoles();
+
+    /**
      * 新增用户
      * @param user
      * @return

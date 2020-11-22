@@ -3,6 +3,7 @@ package tk.mybatis.simple.model;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName SysUser
@@ -12,10 +13,9 @@ import java.util.Date;
  * @Version 1.0
  */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@Builder
 public class SysUser {
     /** 用户ID */
     private Long id;
@@ -32,4 +32,10 @@ public class SysUser {
     private Byte[] headImg;
     /** 创建时间 */
     private Date createTime;
+    /** 用户的角色集合 */
+    private List<SysRole> roleList;
+
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

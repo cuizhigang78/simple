@@ -28,6 +28,11 @@
 		<result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
 	</resultMap>
 
+	<resultMap id="userRoleListMap" extends="userMap" type="tk.mybatis.simple.model.SysUser">
+		<collection property="roleList" columnPrefix="role_"
+					resultMap="tk.mybatis.simple.mapper.RoleMapper.roleMap"/>
+	</resultMap>
+
 	<!--
 		resultMap是一种很重要的配置结果映射的方法，我们必须熟练掌握resultMap的配置方法。
 
@@ -74,7 +79,7 @@
 		typeHandler：使用这个属性可以覆盖默认的类型处理器。这个属性值是类的完全限定名或类型别名。
 	-->
 
-	<select id="selectById" parameterType="java.lang.Long" resultMap="userMap">
+	<select id="selectById" flushCache="false" parameterType="java.lang.Long" resultMap="userMap">
 		select * from sys_user where id = #{id}
 	</select>
 
@@ -194,6 +199,25 @@
 		       head_img,
 		       create_time
 		from sys_user
+	</select>
+
+	<select id="selectAllUserAndRoles" resultMap="userRoleListMap">
+		select
+			u.id,
+		    u.user_name,
+		    u.user_password,
+			u.user_email,
+		  	u.user_info,
+		    u.head_img,
+		    u.create_time,
+			r.id role_id,
+			r.role_name role_role_name,
+			r.enabled role_enabled,
+			r.create_by role_create_by,
+			r.create_time role_create_time
+	    from sys_user u
+		inner join sys_user_role ur on u.id = ur.user_id
+		inner join sys_role r on r.id = ur.role_id
 	</select>
 
 	<!--

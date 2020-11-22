@@ -203,6 +203,22 @@ public class UserMapperTest extends BaseMapperTest {
     }
 
     @Test
+    public void testSelectAllUserAndRoles() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            // 调用selectById，查询id = 1 的用户
+            List<SysUser> users = userMapper.selectAllUserAndRoles();
+            for (SysUser user : users) {
+                System.out.println(user);
+            }
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
     public void testSelectRolesByUserId() {
         SqlSession sqlSession = getSqlSession();
         try {

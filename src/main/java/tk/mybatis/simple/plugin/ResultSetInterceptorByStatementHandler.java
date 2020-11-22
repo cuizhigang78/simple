@@ -1,15 +1,12 @@
 package tk.mybatis.simple.plugin;
 
-import org.apache.ibatis.executor.resultset.ResultSetHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
-import sun.plugin2.main.server.ResultHandler;
+import org.apache.ibatis.session.ResultHandler;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Properties;
 
