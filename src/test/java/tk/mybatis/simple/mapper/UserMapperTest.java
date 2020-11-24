@@ -41,6 +41,23 @@ public class UserMapperTest extends BaseMapperTest {
     }
 
     @Test
+    public void testSelectUserAndRoleById() {
+        SqlSession sqlSession = getSqlSession();
+        try {
+            // 获取UserMapper接口
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            // 调用selectById，查询id = 1 的用户
+            SysUser user = userMapper.selectUserAndRoleById(1001L);
+            // user不为空
+            Assert.assertNotNull(user);
+            // userName = admin
+            Assert.assertEquals("admin", user.getUserName());
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
     public void testSelectByUser() {
         SqlSession sqlSession = getSqlSession();
         try {

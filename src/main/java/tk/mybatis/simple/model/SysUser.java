@@ -2,6 +2,7 @@ package tk.mybatis.simple.model;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SysUser {
+public class SysUser implements Serializable {
+    /** 用户角色 */
+    private SysRole role;
+
     /** 用户ID */
     private Long id;
     /** 用户名 */

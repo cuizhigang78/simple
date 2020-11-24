@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="MySqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<!-- 因为是MySQL数据库，所以前后分隔符都设置为“`” -->
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/>
+
+		<!-- 注释信息 -->
+		<commentGenerator>
+			<!-- 禁止在注释中生成日期 -->
+			<property name="suppressDate" value="true"/>
+			<property name="addRemarkComments" value="true"/>
+		</commentGenerator>
+
+		<!--数据库链接URL，用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://192.168.1.5:3306/mybatis"
+						userId="root"
+						password="root"/>
+
+		<!-- 生成模型的包名和位置-->
+		<javaModelGenerator targetPackage="test.model"
+							targetProject="src\main\java">
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<!-- 生成映射文件的包名和位置-->
+		<sqlMapGenerator targetPackage="mapping"
+						 targetProject="src/main/resources"/>
+
+		<!-- 生成DAO的包名和位置-->
+		<javaClientGenerator type="XMLMAPPER"
+							 targetPackage="test.dao"
+							 targetProject="src\main\java"/>
+
+		<!-- 要生成的表 tableName是数据库中的表名或视图名 %通配符匹配数据库中所有的表-->
+		<table tableName="help_category">
+			<generatedKey column="id" sqlStatement="MySql"/>
+		</table>
+
+	</context>
+</generatorConfiguration>

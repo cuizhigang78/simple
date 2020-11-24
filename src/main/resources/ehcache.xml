@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+		 updateCheck="false" monitoring="autodetect" dynamicConfig="true">
+
+	<!-- 磁盘缓存位置 -->
+	<diskStore path="D/cache"/>
+
+	<!-- 默认缓存 -->
+	<defaultCache
+			maxEntriesLocalHeap="300"
+			eternal="false"
+			copyOnRead="true"
+			copyOnWrite="true"
+			timeToIdleSeconds="3600"
+			timeToLiveSeconds="3600"
+			maxEntriesLocalDisk="10000000"
+			overflowToDisk="true"
+			diskPersistent="true">
+	</defaultCache>
+
+	<!--
+	 	copyOnRead：判断从缓存中读取数据时是返回对象的引用还是复制一个对象返回，默认false，即返回数据的引用这种情况下返回
+	 	            的都是相同的对象，和MyBatis默认缓存的只读对象是相同的。如果设置为true，那就是可读写缓存，每次读取缓存
+	 	            时都会复制一个新的实例。
+	 	copyOnWrite：判断写入缓存时是直接缓存对象的引用还是复制一个对象然后缓存，默认false，即缓存对象的引用。
+
+	 -->
+
+
+	<!-- 如果想针对某一个命名空间进行配置 -->
+	<cache
+			name="tk.mybatis.simple.mapper.RoleMapper"
+			maxEntriesLocalHeap="300"
+			eternal="false"
+			copyOnRead="true"
+			copyOnWrite="true"
+			timeToIdleSeconds="3600"
+			timeToLiveSeconds="3600"
+			overflowToDisk="true"
+			diskPersistent="true">
+	</cache>
+</ehcache>

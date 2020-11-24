@@ -6,7 +6,8 @@
 <mapper namespace="tk.mybatis.simple.mapper.UserMapper">
 
 	<!-- 二级缓存(参照缓存) -->
-	<cache-ref namespace="tk.mybatis.simple.mapper.RoleMapper"/>
+	<!--<cache-ref namespace="tk.mybatis.simple.mapper.RoleMapper"/>-->
+	<cache/>
 	<!--
 		XML中的select标签的id属性值和定义的接口方法名是一样的。
 	MyBatis就是通过这种方式将接口方法和XML中定义的SQL语句关联到一起的。
