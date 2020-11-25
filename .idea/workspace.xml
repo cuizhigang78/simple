@@ -2,18 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42083ad8-1557-4e38-8378-8a113772218e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/CacheTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/CacheTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/UserMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/UserMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MyBatis从入门到精通（刘增辉著）.xmind" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyBatis从入门到精通（刘增辉著）.xmind" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ehcache.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generator/generatorConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/HelpCategoryMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/redis.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/dao/HelpCategoryMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/model/HelpCategory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/generator/Generator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/CountryMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/CountryMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/PrivilegeMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/PrivilegeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/RolePrivilegeMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/RolePrivilegeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/UserRoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/mapper/UserRoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/Country.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/SysPrivilege.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/SysRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/SysRolePrivilege.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/SysUser$SysUserBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/SysUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/model/SysUserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/CameHumpInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/Dialect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/MyInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/MySqlDialect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/PageInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/PageRowBounds.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/ResultSetInterceptorByExecutor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/ResultSetInterceptorByParameterHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/ResultSetInterceptorByResultSetHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/plugin/ResultSetInterceptorByStatementHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tk/mybatis/simple/proxy/MyMapperProxy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tk/mybatis/simple/mapper/BaseMapperTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tk/mybatis/simple/mapper/CacheTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tk/mybatis/simple/mapper/CountryMapperTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tk/mybatis/simple/mapper/PrivilegeMapperTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tk/mybatis/simple/mapper/RoleMapperTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tk/mybatis/simple/mapper/UserMapperTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/CacheTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="137" column="59" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="59" />
+            <state relative-caret-position="2603">
+              <caret line="141" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,7 +89,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="380">
               <caret line="24" column="22" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="456">
               <caret line="31" column="33" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -78,8 +113,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="380">
+              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -223,6 +258,11 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="simple" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="simple" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
         <path>
@@ -245,8 +285,8 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="848" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="857" />
     <option name="y" value="36" />
     <option name="width" value="1038" />
     <option name="height" value="1017" />
@@ -262,28 +302,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="simple" type="58d84e3e:PackageViewProjectNode" />
-              <item name="simple" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="simple" type="58d84e3e:PackageViewProjectNode" />
-              <item name="simple" type="616d4139:PackageViewModuleNode" />
-              <item name="tk" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="simple" type="58d84e3e:PackageViewProjectNode" />
-              <item name="simple" type="616d4139:PackageViewModuleNode" />
-              <item name="tk" type="1f31426a:PackageElementNode" />
-              <item name="mybatis" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,51 +325,6 @@
               <item name="simple" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -392,56 +365,27 @@
               <item name="simple" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="simple" type="58d84e3e:PackageViewProjectNode" />
+              <item name="simple" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="simple" type="58d84e3e:PackageViewProjectNode" />
+              <item name="simple" type="616d4139:PackageViewModuleNode" />
+              <item name="tk" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tk" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="simple" type="58d84e3e:PackageViewProjectNode" />
+              <item name="simple" type="616d4139:PackageViewModuleNode" />
+              <item name="tk" type="1f31426a:PackageElementNode" />
+              <item name="mybatis" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -452,7 +396,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1606178439149" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1606347324707" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ehcache-cache" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -839,14 +783,13 @@
       <workItem from="1605913521727" duration="5260000" />
       <workItem from="1606004063619" duration="9582000" />
       <workItem from="1606086437216" duration="5649000" />
-      <workItem from="1606172815325" duration="5600000" />
+      <workItem from="1606172815325" duration="5970000" />
+      <workItem from="1606259488605" duration="293000" />
+      <workItem from="1606346937963" duration="387000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CacheTest_testL2Cache - 2020.11.23 at 08h 38m 39s.xml">
-      <configuration name="CacheTest.testL2Cache" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CacheTest_testL2Cache - 2020.11.24 at 07h 45m 32s.xml">
       <configuration name="CacheTest.testL2Cache" configurationId="JUnit" />
     </history-entry>
@@ -874,15 +817,17 @@
     <history-entry file="CacheTest_testDirtyData - 2020.11.24 at 08h 38m 58s.xml">
       <configuration name="CacheTest.testDirtyData" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CacheTest_testDirtyData - 2020.11.24 at 08h 40m 41s.xml">
+      <configuration name="CacheTest.testDirtyData" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75655000" />
+    <option name="totallyTimeSpent" value="76705000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="848" y="36" width="1038" height="1017" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.34764826" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -891,7 +836,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283767" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42242354" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4219089" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49795502" weight="0.38177875" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -900,12 +845,12 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.502045" side_tool="true" weight="0.398641" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32616082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24951644" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24946696" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.3634538" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.36300638" />
       <window_info anchor="right" id="PlantUML" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="leetcode" order="6" side_tool="true" />
@@ -950,6 +895,37 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="311" height="487" key="Git.Branch.Popup" />
+    <state width="311" height="487" key="Git.Branch.Popup/1920.1080" />
+    <state width="311" height="487" key="Git.Branch.Popup@1920.1080" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1352,12 +1328,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
           <caret line="63" column="21" lean-forward="true" selection-start-line="59" selection-start-column="8" selection-end-line="63" selection-end-column="21" />
         </state>
       </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
       <provider selected="true" editor-type-id="text-editor">
@@ -1392,18 +1368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/CacheTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="137" column="59" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="33" />
+        <state relative-caret-position="2603">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1412,8 +1378,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="380">
           <caret line="24" column="22" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1422,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="380">
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
         </state>
       </provider>
     </entry>
